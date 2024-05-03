@@ -11,7 +11,7 @@ for i in listdir(path.dirname(__file__)+"\Assets"):
 
 
 
-tile_dict = {0:air,1:floor,2:paint,3:playerforward,4:shelf1,5:paint,6:shelf2,7:stool,8:table,9:playerbackward,10:playerleft,11:playerright,12:playeranimright,13:playeranimleft,14:playeranimforward,15:playeranimbackward,16:playerforwardsit,17:playerbackwardsit,18:playerrightsit,19:playerleftsit}
+tile_dict = {0:air,1:floor,2:paint,3:playerforward,4:shelf1,5:paint,6:shelf2,7:stool,8:table,9:playerbackward,10:playerleft,11:playerright,12:playeranimright,13:playeranimleft,14:playeranimforward,15:playeranimbackward}
 map1 = [[[1,1,1,1,1,1,1,1,1,1,1,1,1],
          [1,1,1,1,1,1,1,1,1,1,1,1,1],
          [1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -143,38 +143,5 @@ while True:
                         pygame.display.update()
 
                 pygame.event.clear()
-            elif event.key == pygame.K_e:
-                if map1[player_pos[0]][player_pos[1]][player_pos[2]] == 10:
-                    print('facing left')
-                    if player_pos[2]-1 > -1:
-                        if map1[player_pos[0]][player_pos[1]][player_pos[2]-1] == 7:
-                            print('there is a stool in front of you')
-                            if map1[player_pos[0]][player_pos[1]][player_pos[2]-2] == 8:
-                                map1[player_pos[0]+1][player_pos[1]][player_pos[2]-1] = 19
-
-                            elif map1[player_pos[0]][player_pos[1]-1][player_pos[2]-1] == 8:
-                                map1[player_pos[0]+1][player_pos[1]][player_pos[2]-1] = 16
-
-                            elif map1[player_pos[0]][player_pos[1]+1][player_pos[2]-1] == 8:
-                                map1[player_pos[0]][player_pos[1]][player_pos[2]-1] = 17
-
-                elif map1[player_pos[0]][player_pos[1]][player_pos[2]] == 11:
-                    print('facing right')
-                    if player_pos[2]+1 < 13:
-                        if map1[player_pos[0]][player_pos[1]][player_pos[2]+1] == 7:
-                            print('there is a stool in front of you')
-
-                elif map1[player_pos[0]][player_pos[1]][player_pos[2]] == 3:
-                    print('facing forward')
-                    if player_pos[1]-1 > -1:
-                        if map1[player_pos[0]][player_pos[1]-1][player_pos[2]] == 7:
-                            print('there is a stool in front of you')
-
-                elif map1[player_pos[0]][player_pos[1]][player_pos[2]] == 9:
-                    print('facing backward')
-                    if player_pos[1]+1 < 10:
-                        if map1[player_pos[0]][player_pos[1]+1][player_pos[2]-1] == 7:
-                            print('there is a stool in front of you')
-
     pygame.display.update()
     frame.tick(60)
